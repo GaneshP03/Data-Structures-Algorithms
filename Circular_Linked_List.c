@@ -36,7 +36,7 @@ struct Node* InsertInBetween(struct Node* head,int data,int pos){
       printf("Insertion Not Possible");
       return ;
     }
-  struct Node* ptr = (struct Node*)malloc(sizeof(struct Node));
+  struct Node* newnode = (struct Node*)malloc(sizeof(struct Node));
   struct Node* p=head;
  
   int i=1;
@@ -45,9 +45,9 @@ struct Node* InsertInBetween(struct Node* head,int data,int pos){
     p=p->next;
     i++;
   }
-  ptr->data=data;
-  ptr->next=p->next;
-  p->next=ptr;
+  newnode->data=data;
+  newnode->next=p->next;
+  p->next=newnode;
   return head;
 }
 
@@ -109,8 +109,5 @@ int main(){
     }
 
     print(head);
-    // head=insertAtFirst(head,12);
-    head=Delete_At_Start(head);
-    // head=InsertInBetween(head,12,7);
-    print(head);
+    
 }
