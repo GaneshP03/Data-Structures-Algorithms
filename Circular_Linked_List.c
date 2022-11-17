@@ -7,7 +7,17 @@ struct Node{
  int data;
 };
 // Deletion of an Element in a CLL
-
+struct Node* Delete_At_End(struct Node* head){
+    struct Node* p=head;
+    struct Node* q=head->next;
+    while(q->next!=head){
+        p=p->next;
+        q=q->next;
+    }
+    p->next=q->next;
+    free(q);
+    return head;
+}
 // Insert In between
 struct Node* InsertInBetween(struct Node* head,int data,int pos){
     if(pos>n){
@@ -88,7 +98,7 @@ int main(){
 
     print(head);
     // head=insertAtFirst(head,12);
-    head=InsertAtEnd(head,10);
+    head=Delete_At_End(head);
     // head=InsertInBetween(head,12,7);
     print(head);
 }
