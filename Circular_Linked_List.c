@@ -6,7 +6,19 @@ struct Node{
  struct Node* next;
  int data;
 };
-// Deletion of an Element in a CLL
+// Deletion of an Element at the start in CLL
+struct Node* Delete_At_Start(struct Node* head){
+    struct Node* p=head;
+    while(p->next!=head){
+        p=p->next;
+    }
+      p->next=head->next;
+      free(head);
+      head=p->next;
+    return head;
+}
+
+// Deletion of an Element at the end in a CLL
 struct Node* Delete_At_End(struct Node* head){
     struct Node* p=head;
     struct Node* q=head->next;
@@ -98,7 +110,7 @@ int main(){
 
     print(head);
     // head=insertAtFirst(head,12);
-    head=Delete_At_End(head);
+    head=Delete_At_Start(head);
     // head=InsertInBetween(head,12,7);
     print(head);
 }
