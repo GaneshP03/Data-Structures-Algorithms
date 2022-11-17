@@ -26,16 +26,16 @@ struct Node* DeleteAtEnd(struct Node* head){
     p=p->next;
     q=q->next;
   }
-  p->next=q->next;
+  p->next=NULL;
   free(q);
   return head;
 }
 // Deletion at Start.
 struct Node* DeleteAtFirst(struct Node* head){
   struct Node* temp=head;
-  head=head->next;
-  free(temp);
-  return head;
+  temp=temp->next;
+  free(head);
+  return temp;
 }
 // Inserting at Tail.
 struct Node* InsertAtTail(struct Node* head,int data){
@@ -85,10 +85,7 @@ struct Node* Insertinbw(struct Node* head,int data,int index){
 void creation(struct Node* head){
   int n;
   scanf("%d",&n);
- if(n==0){
-  head=NULL;
-  return ;
- }
+
   head->next=NULL;
   scanf("%d",&head->data);
   struct Node* temp=head;
@@ -104,10 +101,7 @@ void creation(struct Node* head){
 void display(struct Node* head){
   
   
- if(head==NULL){
-  printf("List is Empty");
-  return ;
- }
+
  struct Node* temp=head;
   while(temp!=NULL){
     printf("%d ",temp->data);
@@ -119,15 +113,8 @@ void display(struct Node* head){
 int main(){
   struct Node* head=(struct Node*)malloc(sizeof(struct Node*));
   creation(head);
-
   display(head);
-  // head=Insertinbw(head,12,4);
-  // display(head);
-  // if(search(head,12)==1){
-  //   printf("Element Found");
-  // }
-  // else{
-  //   printf("Element Not Found");
-  // }
+ 
+
   return 0;
 }
