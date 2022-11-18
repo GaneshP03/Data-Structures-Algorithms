@@ -6,6 +6,19 @@ struct Node{
  struct Node* next;
  int data;
 };
+// Searching in a CLL 
+int Search(struct Node* head,int elm){
+    int c=0;
+    struct Node* temp=head;
+    do{
+       if(temp->data==elm){
+        c=1;
+        break;
+       }
+       temp=temp->next;
+    }while(temp!=head);
+    return c;
+}
 // Deletion of an Element at the start in CLL
 struct Node* Delete_At_Start(struct Node* head){
     struct Node* p=head;
@@ -108,6 +121,11 @@ int main(){
         temp=temp->next;
     }
 
-    print(head);
+    if(Search(head,3)==1){
+        printf("Element Found");
+    }
+    else{
+        printf("Element Not Found");
+    }
     
 }
