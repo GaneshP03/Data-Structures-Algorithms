@@ -6,6 +6,22 @@ int data;
 struct Node* next;
 struct Node* prev;
 };
+// Insertion in middle of a Doubly Linked List.
+struct Node*InsertInbw(struct Node* head, int data,int index){
+    struct Node* newnode=(struct Node*)malloc(sizeof(struct Node*));
+    newnode->data=data;
+    int i=1;
+    struct Node* p=head;
+    while(i!=index-1){
+      p=p->next;
+      i++;
+    }
+   newnode->prev=p;
+   newnode->next=p->next;
+   p->next=newnode;
+   newnode->next->prev=newnode;
+   return head;
+}
 // Insertion at the tail of a Doubly Linked List.
 struct Node* InsertAtTail(struct Node* tail,int data){
     struct Node* newnode=(struct Node* )malloc(sizeof(struct Node*));
@@ -64,6 +80,7 @@ int main(){
     Display(head);
     // DisplayBack(tail);
     // head=InsertAtHead(head,12);
-    tail=InsertAtTail(tail,12);
+    // tail=InsertAtTail(tail,12);
+    head=InsertInbw(head,12,3);
     Display(head);
 }
