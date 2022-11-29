@@ -7,6 +7,10 @@ struct Node{
 };
 
 struct Node* top=NULL;
+// Peak Funtion in stack.
+int peak(){
+    return top->data;
+}
 // Function to check if stack is empty.
 int IsEmpty(){
   if(top==NULL){
@@ -54,6 +58,4 @@ int main(){
         push(x);
         
     }
-    pop();
-    print();
 }
